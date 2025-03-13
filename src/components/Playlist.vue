@@ -2,10 +2,11 @@
 import { ref } from "vue";
 import axios from "axios";
 import { useToast } from "vue-toastification";
-import Spinner from "./Spinner.vue"
 
 // Initialize toast
 const toast = useToast();
+
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
 // Reactive variables
 const selectedGenre = ref("");
@@ -56,7 +57,7 @@ const generateSonglist = async () => {
   startLoadingAnimation();
 
   try {
-    const response = await axios.post("http://localhost:8000/generate_song_list", {
+    const response = await axios.post(`${API_BASE_URL}/generate_song_list/`, {
       genre: selectedGenre.value,
     });
 
