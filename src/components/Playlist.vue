@@ -8,9 +8,6 @@ import { onMounted } from "vue";
 const toast = useToast();
 
 const apiUrl = import.meta.env.VITE_MUSIC_PLAYLIST_API_URL;
-onMounted(() => {
-  console.log("✅ API URL:", apiUrl);
-});
 
 // Reactive variables
 const selectedGenre = ref("");
@@ -66,7 +63,7 @@ const generateSonglist = async () => {
     const response = await axios.post(`${apiUrl}/generate_song_list/`, {
       genre: selectedGenre.value,
     });
-    console.log(`Fetching from: ${apiUrl}/generate_song_list/`)
+    
 
     playlist.value = response.data.playlist || [];
     showGenreMessage.value = false;
