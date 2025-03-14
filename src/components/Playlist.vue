@@ -6,7 +6,7 @@ import { useToast } from "vue-toastification";
 // Initialize toast
 const toast = useToast();
 
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+const apiUrl = import.meta.env.MUSIC_PLAYLIST_API_URL;
 
 // Reactive variables
 const selectedGenre = ref("");
@@ -17,6 +17,8 @@ const showStartButton = ref(true);
 const showGenreMessage = ref(false);
 const genreMessage = ref("");
 const loading = ref(false); // Loading state
+const loadingText = ref("Generating Playlist");
+
 
 const genreMessages = {
   Afrobeats: "Vibrant and energetic! Let’s dive into the Afrobeats rhythm! 💃",
@@ -57,7 +59,7 @@ const generateSonglist = async () => {
   startLoadingAnimation();
 
   try {
-    const response = await axios.post(`${API_BASE_URL}/generate_song_list/`, {
+    const response = await axios.post(`${apiUrl}/generate_song_list/`, {
       genre: selectedGenre.value,
     });
 
@@ -146,7 +148,7 @@ const showSignInToast = () => {
         <button
           v-if="showStartButton"
           @click="openGenrePopup"
-          class="relative px-8 py-4 bg-gradient-to-br from-brand-accent via-brand-accent to-pink-700 text-white font-semibold rounded-full shadow-lg hover:bg-pink-800 transition duration-300 overflow-hidden group"
+          class="relative px-8 py-4 bg-gradient-to-br from-black via-pink-500 to-black text-white font-semibold rounded-full shadow-lg hover:bg-pink-800 transition duration-300 overflow-hidden group"
         >
           <span class="relative z-10 text-lg">🎶 Start Creating</span>
         </button>
@@ -167,7 +169,7 @@ const showSignInToast = () => {
 
       <!-- Genre Message Section -->
       <p v-if="showGenreMessage" class="text-xl font-semibold text-pink-300 mt-10 md:mt-8">{{ genreMessage }}</p>
-      <button v-if="showGenreMessage" @click="generateSonglist" :disabled="loading" class="mt-4 px-6 py-3 bg-gradient-to-br from-brand-accent via-brand-accent to-pink-700 text-white">
+      <button v-if="showGenreMessage" @click="generateSonglist" :disabled="loading" class="mt-4 px-6 py-3 bg-gradient-to-br from-black via-pink-500 to-black text-white">
         <span v-if="!loading" class="transition-opacity duration-300">Generate Playlist</span>
         <span v-else class="text-xl text-pink-300 mt-4 animate-pulse transition-opacity duration-300">Generating Playlist<span class="dot">...</span></span>
       </button>
