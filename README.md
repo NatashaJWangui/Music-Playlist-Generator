@@ -180,5 +180,3 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - Development is ongoing with future plans for API enhancements and additional features.
 
 ---
-
-Feel free to tweak this according to any additional details you'd like to include.
