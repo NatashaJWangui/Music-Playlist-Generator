@@ -25,16 +25,16 @@ const loadingText = ref("Generating Playlist");
 
 
 const genreMessages = {
-  Afrobeats: "Vibrant and energetic! Let’s dive into the Afrobeats rhythm! 💃",
+  Afrobeats: "Feel the vibrant energy! Let's groove to Afrobeats! 💃",
   "Hip Hop": "Get ready to vibe with the latest beats and bars! 🎤",
-  jazz: "Cool and classy! Get ready for a jazzy vibe! 🎺",
-  latin: "Spicy and passionate! Let’s heat up your playlist with Latin rhythms! 💃",
+  jazz: "Smooth and classy! Time to enjoy a jazzy vibe! 🎷",
+  latin: "Spicy and bold! Let’s turn up the Latin heat! 🔥",
   opera: "A grand selection! Prepare for a majestic experience! 🎭",
-  "pop rock": "Rock on! Let’s add some energy to your playlist! 🎸",
-  pop: "Catchy and fun! Let’s make your playlist pop! 🎤",
-  Reggae: "Relax and groove to the laid-back rhythms of Reggae! 🌿",
-  rnb: "Smooth and soulful! Let’s get into the rhythm of R&B! 🎶",
-  soul: "Smooth choice! Let’s get into the groove! 🎷",
+  "pop rock": "High energy, good vibes! Let’s rock this playlist! 🎸",
+  pop: "Catchy and fun! Let’s make your playlist pop! 🎉",
+  Reggae: "Laid-back and feel-good! Let’s catch the Reggae vibes! 🌿",
+  rnb: "Smooth and sultry! Let’s get into the rhythm of R&B! 🎶",
+  soul: "Deep and rich! Let’s get lost in the groove of soul! 🎺",
 };
 
 // For animated loading dots
