@@ -63,7 +63,6 @@ const generateSonglist = async () => {
     const response = await axios.post(`${apiUrl}/generate_song_list/`, {
       genre: selectedGenre.value,
     });
-    
 
     playlist.value = response.data.playlist || [];
     showGenreMessage.value = false;
