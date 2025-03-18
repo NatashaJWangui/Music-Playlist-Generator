@@ -149,6 +149,7 @@ const showSignInToast = () => {
         <button
           v-if="showStartButton"
           @click="openGenrePopup"
+          data-testid="start-creating-button"
           class="relative px-8 py-4 bg-gradient-to-br from-black via-pink-500 to-black text-white font-semibold rounded-full shadow-lg hover:bg-pink-800 transition duration-300 overflow-hidden group"
         >
           <span class="relative z-10 text-lg">🎶 Start Creating</span>
@@ -156,36 +157,36 @@ const showSignInToast = () => {
       </div>
 
       <!-- Genre Selection Popup -->
-      <div v-if="showGenrePopup" class="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-gradient-to-br from-black via-pink-500 to-black p-6 rounded-xl shadow-lg text-center w-11/12 max-w-md z-50">
+      <div v-if="showGenrePopup" data-testid="genre-popup" class="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-gradient-to-br from-black via-pink-500 to-black p-6 rounded-xl shadow-lg text-center w-11/12 max-w-md z-50">
         <div class="flex justify-between items-center mb-4">
           <h2 class="text-2xl font-bold text-white">Select a Genre</h2>
-          <button @click="closeGenrePopup" class="text-gray-200 hover:text-pink-400 !bg-black bg-black text-2xl">&times;</button>
+          <button @click="closeGenrePopup" data-testid="close-genre-popup" class="text-gray-200 hover:text-pink-400 !bg-black bg-black text-2xl">&times;</button>
         </div>
         <div class="grid grid-cols-2 gap-4">
-          <button v-for="genre in genres" :key="genre" @click="selectGenre(genre)" class="px-4 py-2 hover:text-pink-400 bg-black !bg-black text-white rounded-xl">
+          <button v-for="genre in genres" :key="genre" @click="selectGenre(genre)" data-testid="genre-button" class="px-4 py-2 hover:text-pink-400 bg-black !bg-black text-white rounded-xl">
             {{ genre }}
           </button>
         </div>
       </div>
 
       <!-- Genre Message Section -->
-      <p v-if="showGenreMessage" class="text-xl font-semibold text-pink-300 mt-10 md:mt-8">{{ genreMessage }}</p>
-      <button v-if="showGenreMessage" @click="generateSonglist" :disabled="loading" class="mt-4 px-6 py-3 bg-gradient-to-br from-black via-pink-500 to-black text-white">
-        <span v-if="!loading" class="transition-opacity duration-300">Generate Playlist</span>
-        <span v-else class="text-xl text-pink-300 mt-4 animate-pulse transition-opacity duration-300">Generating Playlist<span class="dot">...</span></span>
+      <p v-if="showGenreMessage" data-testid="genre-message" class="text-xl font-semibold text-pink-300 mt-10 md:mt-8">{{ genreMessage }}</p>
+      <button v-if="showGenreMessage" @click="generateSonglist" :disabled="loading" data-testid="generate-playlist-button" class="mt-4 px-6 py-3 bg-gradient-to-br from-black via-pink-500 to-black text-white">
+        <span v-if="!loading" data-testid="loading-indicator" class="transition-opacity duration-300">Generate Playlist</span>
+        <span v-else data-testid="loading-indicator-main" class="text-xl text-pink-300 mt-4 animate-pulse transition-opacity duration-300">Generating Playlist<span class="dot">...</span></span>
       </button>
 
       <!-- Songlist Section -->
-      <div v-if="playlist.length" class="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full max-w-4xl bg-gradient-to-br from-black via-pink-500 to-black text-center p-6 sm:p-10 rounded-3xl shadow-xl z-50">
+      <div v-if="playlist.length" data-testid="playlist-section" class="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full max-w-4xl bg-gradient-to-br from-black via-pink-500 to-black text-center p-6 sm:p-10 rounded-3xl shadow-xl z-50">
         <div class="flex justify-between items-center mb-4">
           <h2 class="text-2xl sm:text-3xl font-semibold text-center">Your generated playlist for <span class="capitalize">{{ selectedGenre }}</span></h2>
           <button data-testid="close-playlist-button" @click="closePlaylist" class="text-gray-200 hover:text-pink-400 !bg-black bg-black text-2xl">&times;</button>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
-          <div v-for="(song, index) in playlist" :key="index" class="px-4 py-2 bg-pink-700 hover:text-pink-300 p-4 sm:p-6 rounded-xl shadow-lg w-full">
+          <div v-for="(song, index) in playlist" :key="index" data-testid="playlist-item" class="px-4 py-2 bg-pink-700 hover:text-pink-300 p-4 sm:p-6 rounded-xl shadow-lg w-full">
             <div>
-              <p class="text-lg sm:text-xl font-medium break-words">{{ song.title }}</p>
-              <p class="text-gray-400 text-md sm:text-lg break-words">{{ song.artist }}</p>
+              <p data-testid="playlist-item-title" class="text-lg sm:text-xl font-medium break-words">{{ song.title }}</p>
+              <p data-testid="playlist-item-artist" class="text-gray-400 text-md sm:text-lg break-words">{{ song.artist }}</p>
             </div>
             🎵
           </div>
