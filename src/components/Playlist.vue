@@ -131,11 +131,11 @@ const showSignInToast = () => {
     <nav class="w-full flex justify-between items-center px-6 py-4 bg-transparent fixed top-0 left-0 right-0 z-50">
       <img src="/mylogoblack.png" alt="My Logo" class="h-18 ml-2">
       <div class="hidden md:flex space-x-4">
-        <button class="text-white hover:text-pink-400 bg-black !bg-black" @click="showSignUpToast">Sign Up</button>
-        <button class="text-white bg-gradient-to-br from-black via-pink-500 to-black" @click="showSignInToast">Sign In</button>
+        <button data-testid="sign-up-button" class="text-white hover:text-pink-400 bg-black !bg-black" @click="showSignUpToast">Sign Up</button>
+        <button data-testid="sign-in-button" class="text-white bg-gradient-to-br from-black via-pink-500 to-black" @click="showSignInToast">Sign In</button>
       </div>
       <div class="md:hidden">
-        <button class="text-white bg-gradient-to-br from-black via-pink-500 to-black" @click="showSignInToast">Sign In</button>
+        <button data-testid="sign-in-button" class="text-white bg-gradient-to-br from-black via-pink-500 to-black" @click="showSignInToast">Sign In</button>
       </div>
     </nav>
 
@@ -179,7 +179,7 @@ const showSignInToast = () => {
       <div v-if="playlist.length" class="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full max-w-4xl bg-gradient-to-br from-black via-pink-500 to-black text-center p-6 sm:p-10 rounded-3xl shadow-xl z-50">
         <div class="flex justify-between items-center mb-4">
           <h2 class="text-2xl sm:text-3xl font-semibold text-center">Your generated playlist for <span class="capitalize">{{ selectedGenre }}</span></h2>
-          <button @click="closePlaylist" class="text-gray-200 hover:text-pink-400 !bg-black bg-black text-2xl">&times;</button>
+          <button data-testid="close-playlist-button" @click="closePlaylist" class="text-gray-200 hover:text-pink-400 !bg-black bg-black text-2xl">&times;</button>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
           <div v-for="(song, index) in playlist" :key="index" class="px-4 py-2 bg-pink-700 hover:text-pink-300 p-4 sm:p-6 rounded-xl shadow-lg w-full">
