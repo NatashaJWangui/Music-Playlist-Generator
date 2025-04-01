@@ -33,8 +33,8 @@ This project is a **Music Playlist Generator** built with **FastAPI** for the ba
 1. Clone the repository:
 
     ```bash
-    git clone https://gridirontest.com/bootcamp-cohort-5/natasha-j-wangui.git
-    cd music-playlist-generator/music-backend
+    git clone https://github.com/NatashaJWangui/Music-Playlist-Generator-Backend.git
+    cd music-backend
     ```
 
 2. Install the required Python dependencies:
@@ -63,7 +63,7 @@ This project is a **Music Playlist Generator** built with **FastAPI** for the ba
 1. Clone the repository (if not already done):
 
     ```bash
-    git clone https://gridirontest.com/bootcamp-cohort-5/natasha-j-wangui.git
+    git clone https://github.com/NatashaJWangui/Music-Playlist-Generator.git
     cd music-playlist-generator
     ```
 
