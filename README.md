@@ -168,7 +168,7 @@ We welcome contributions! If you'd like to contribute to this project, please fo
 ## Authors and Acknowledgment
 
 - **Natasha J Wangui**: Project creator and developer.
-- Special thanks to the Gridiron Bootcamp for providing this exercise.
+- Special thanks to the Gridiron Bootcamp - EGA Tech for providing this exercise.
 
 ## License
 
