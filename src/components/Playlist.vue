@@ -185,7 +185,7 @@ const showSignInToast = () => {
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
           <div v-for="(song, index) in playlist" :key="index" data-testid="playlist-item" class="px-4 py-2 bg-pink-700 hover:text-pink-300 p-4 sm:p-6 rounded-xl shadow-lg w-full">
             <div>
-              <p data-testid="playlist-item-title" class="text-lg sm:text-xl font-medium break-words">{{ index + 1 }}.{{ song.title }}</p>
+              <p data-testid="playlist-item-title" class="text-lg sm:text-xl font-medium break-words">{{ index + 1 }}. {{ song.title }}</p>
               <p data-testid="playlist-item-artist" class="text-gray-400 text-md sm:text-lg break-words">{{ song.artist }}</p>
             </div>
             🎵
